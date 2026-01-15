@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="todo-app">
+        <header class="todo-app__header">
+            <h1 class="todo-app__title">My Todo List</h1>
+        </header>
+
+        <main class="todo-app__main">
+            <div class="todo-form">
+                <input
+                    type="text"
+                    class="todo-form__input"
+                    placeholder="Add a new task..."
+                    id="todoInput"
+                >
+                <button
+                    type="button"
+                    class="todo-form__button todo-form__button--add"
+                    id="addButton"
+                >
+                    Add Task
+                </button>
+                <button
+                    type="button"
+                    class="todo-form__button todo-form__button--test"
+                    id="testButton"
+                >
+                    Test JS (logs 1)
+                </button>
+            </div>
+
+            <div class="todo-list">
+                <div class="todo-item">
+                    <input type="checkbox" class="todo-item__checkbox" id="task1">
+                    <label for="task1" class="todo-item__label">Example task 1</label>
+                    <button class="todo-item__delete" aria-label="Delete task">×</button>
+                </div>
+                <div class="todo-item todo-item--completed">
+                    <input type="checkbox" class="todo-item__checkbox" id="task2" checked>
+                    <label for="task2" class="todo-item__label">Example task 2</label>
+                    <button class="todo-item__delete" aria-label="Delete task">×</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
