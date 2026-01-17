@@ -20,6 +20,11 @@ function initializeTestButton() {
         });
     }
 }
+document.querySelectorAll(".todo-item__checkbox").forEach((ele) =>
+    ele.addEventListener("change", (e) => {
+        console.log("changed");
+    }),
+);
 
 // Initialize the application when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
