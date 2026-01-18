@@ -1,7 +1,7 @@
 // Todo List Application JavaScript
 // Add item function
 function addItem(e) {
-    return `<div class="todo-item"><input type="checkbox" name="${e.toLowerCase()}" class="todo-item__checkbox" id="${e.toLowerCase()}"><label for="${e.toLowerCase()}" class="todo-item__label">${e}</label><button class="todo-item__delete" aria-label="Delete task">×</button></div>`;
+    return `<div class="todo-item"><input type="checkbox" name="${e.toLowerCase()}" class="todo-item__checkbox" id="${e.toLowerCase()}" onchange="handleChange(this)"><label for="${e.toLowerCase()}" class="todo-item__label">${e}</label><button class="todo-item__delete" onclick="handleClick(this)" aria-label="Delete task">×</button></div>`;
 }
 // Test button functionality - logs 1 to console
 function initializeTestButton() {
@@ -20,13 +20,25 @@ function initializeTestButton() {
         });
     }
 }
-document.querySelectorAll(".todo-item__checkbox").forEach((ele) =>
-    ele.addEventListener("change", (e) => {
-        console.log("changed");
-    }),
-);
+// funstion reacts to a chekbox item being changed and adds a line-through accordingly
+function handleChange(ele) {
+    console.log("changed");
 
-// Initialize the application when DOM is loaded
+    console.log(ele);
+    console.log(ele.checked);
+    let label = document.querySelector('label[for="n"]');
+    //if element is checked then pass through a line
+    if (ele.checked) {
+        label.style.textDecoration = "line-through";
+    } else {
+        label.removeAttribute("style");
+    }
+}
+function handleClick(ele) {
+    ele.parentElement.remove();
+}
+
+//Initialize the application when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
     initializeTestButton();
 
