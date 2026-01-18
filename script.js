@@ -16,17 +16,22 @@ function initializeTestButton() {
                     "beforeend",
                     addItem(document.querySelector("#todoInput").value),
                 );
+            localStorage.setItem()
             console.log("did it");
         });
     }
 }
+
+
 // funstion reacts to a chekbox item being changed and adds a line-through accordingly
 function handleChange(ele) {
     console.log("changed");
 
     console.log(ele);
     console.log(ele.checked);
-    let label = document.querySelector('label[for="n"]');
+    let label = document.querySelector(
+        `label[for=\"${ele.getAttribute("id")}\"]`,
+    );
     //if element is checked then pass through a line
     if (ele.checked) {
         label.style.textDecoration = "line-through";
@@ -34,6 +39,8 @@ function handleChange(ele) {
         label.removeAttribute("style");
     }
 }
+
+
 function handleClick(ele) {
     ele.parentElement.remove();
 }
